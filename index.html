@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sharif Ahammed - Senior Web Developer & AI Automation Creator">
+    <title>Sharif Ahammed | Senior Tech Lead</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/glitch.css">
+    <link rel="stylesheet" href="styles/logs.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="noise"></div>
+    <div class="scanline"></div>
+    <div class="scanline-sweep"></div>
+    <div class="overlay"></div>
+
+    <header class="navbar">
+        <div class="logo">&lt;Sharif /&gt;</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#experience" class="nav-item">History</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#contact" class="nav-item">[ Contact ]</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container reveal">
+                <div class="hero-content">
+                    <p class="terminal-prefix">>_ INITIALIZING SYSTEM...</p>
+                    <h1 class="glitch" data-text="SHARIF AHAMMED">SHARIF AHAMMED</h1>
+                    <h2 class="role-title">Software Engineer <span class="accent">|</span> Senior Web Developer <span
+                            class="accent">|</span> AI Automation Engineer</h2>
+                    <p class="tagline">Building scalable, secure, and intelligent digital solutions for the future.</p>
+
+                    <div class="cta-group">
+                        <a href="https://wa.me/8801717361064" class="btn primary-btn" target="_blank"><i
+                                class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="#projects" class="btn secondary-btn">View Work_</a>
+                        <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section reveal">
+            <div class="container reverse-grid">
+                <div class="about-text">
+                    <h2 class="section-title">01. <span class="highlight">About Me</span></h2>
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="title">user_profile.json</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p>> Loading profile data...</p>
+                            <p>> Experience: <span class="code-value">17+ Years</span></p>
+                            <p>> Current Role: <span class="code-value">Senior Web Developer @ 51blocks</span></p>
+                            <p class="bio-text">
+                                Innovative Senior Web Developer and AI Automation Creator with a passion for building
+                                complex, high-performance systems. with over a decade of experience, I specialize in
+                                transforming abstract concepts into robust, scalable software solutions. My approach
+                                combines clean architecture with cutting-edge technology.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="assets/images/profile.jpg" alt="Sharif Ahammed" class="profile-pic">
+                        <div class="corner t-l"></div>
+                        <div class="corner t-r"></div>
+                        <div class="corner b-l"></div>
+                        <div class="corner b-r"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">02. <span class="highlight">System Capabilities</span></h2>
+                <div class="skills-grid">
+                    <!-- Skill Category 1 -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Development</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span class="prompt">></span> HTML5 / CSS3 / SCSS</li>
+                            <li><span class="prompt">></span> JavaScript (ES6+)</li>
+                            <li><span class="prompt">></span> React / Vue / Next.js</li>
+                            <li><span class="prompt">></span> Node.js / Python</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Category 2 -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-server"></i>
+                            <h3>Backend & Ops</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span class="prompt">></span> RESTful APIs</li>
+                            <li><span class="prompt">></span> Database Design (SQL/NoSQL)</li>
+                            <li><span class="prompt">></span> Docker / Kubernetes</li>
+                            <li><span class="prompt">></span> AWS / Cloud Infrastructure</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Category 3 -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-robot"></i>
+                            <h3>AI & Automation</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span class="prompt">></span> LLM Integration</li>
+                            <li><span class="prompt">></span> Workflow Automation</li>
+                            <li><span class="prompt">></span> Intelligent Agents</li>
+                            <li><span class="prompt">></span> Data Processing Pipelines</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Category 4 -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>Architecture</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span class="prompt">></span> System Design</li>
+                            <li><span class="prompt">></span> Microservices</li>
+                            <li><span class="prompt">></span> Clean Code Principles</li>
+                            <li><span class="prompt">></span> Agile Methodologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Execution Logs Section -->
+        <section id="experience" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">03. <span class="highlight">Execution Logs</span></h2>
+                <div class="terminal-logs">
+
+                    <!-- Entry 1 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2022-06 :: PRESENT]</span>
+                            <span class="log-command">EXEC_ROLE --target="51Blocks"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Senior Web Developer</h3>
+                            <p class="log-desc">// Focused on building and maintaining high-performance websites for
+                                SEO, PPC, and local marketing solutions. Contributing to innovative digital strategies
+                                for small businesses.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 2 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2016-01 :: PRESENT]</span>
+                            <span class="log-command">EXEC_ROLE --target="nixits"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Developer</h3>
+                            <p class="log-desc">// Ongoing development work across multiple projects.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 3 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2014-05 :: PRESENT]</span>
+                            <span class="log-command">INIT_STARTUP --target="DuiChaka"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Founder & Developer</h3>
+                            <p class="log-desc">// Built and maintained a multivendor eCommerce platform with a focus on
+                                usability, scalability, and user-centric design.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 4 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2012-03 :: PRESENT]</span>
+                            <span class="log-command">CONTRIBUTE --org="Mozilla"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Volunteer</h3>
+                            <p class="log-desc">// Actively contributing to open web initiatives, web literacy, and
+                                community-driven innovation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 5 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2012-03 :: PRESENT]</span>
+                            <span class="log-command">CONTRIBUTE --org="FOSS Bangladesh"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Volunteer</h3>
+                            <p class="log-desc">// Supporting open-source advocacy and community empowerment through
+                                free and open technology.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 6 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2011-01 :: PRESENT]</span>
+                            <span class="log-command">EXEC_ROLE --target="PRIMEX Infosys"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Developer</h3>
+                            <p class="log-desc">// Long-term development role involving web solutions, system
+                                maintenance, and continuous technical contributions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 7 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-time">[2009-01 :: PRESENT]</span>
+                            <span class="log-command">LEAD_COMMUNITY --org="Linux Bangladesh"</span>
+                        </div>
+                        <div class="log-content">
+                            <h3 class="log-role">>> Community Volunteer</h3>
+                            <p class="log-desc">// Leading and growing the Linux open-source community, organizing
+                                workshops, and promoting open-source adoption.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">04. <span class="highlight">Deployed Projects</span></h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">WEB DEVELOPMENT</div>
+                            <h3>Custom Business Website</h3>
+                            <p>Custom-built, high-performance business website with responsive design, optimized speed,
+                                and secure architecture.</p>
+                            <div class="tech-stack">
+                                <span>Performance</span>
+                                <span>Security</span>
+                                <span>SEO</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder">
+                                <i class="fab fa-wordpress"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">WEB DEVELOPMENT</div>
+                            <h3>Enterprise WordPress Platform</h3>
+                            <p>Advanced WordPress-based platform with custom theme development, plugin integration, and
+                                scalable structure.</p>
+                            <div class="tech-stack">
+                                <span>Custom Theme</span>
+                                <span>PHP</span>
+                                <span>Scalability</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder">
+                                <i class="fas fa-server"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">SOFTWARE DEVELOPMENT</div>
+                            <h3>Backend Systems Logic</h3>
+                            <p>Backend-driven software solution designed to handle complex workflows, data processing,
+                                and system logic.</p>
+                            <div class="tech-stack">
+                                <span>Node.js</span>
+                                <span>Data Processing</span>
+                                <span>Workflow</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">SOFTWARE DEVELOPMENT</div>
+                            <h3>Systems Automation App</h3>
+                            <p>Custom software application focused on automation, system efficiency, and long-term
+                                maintainability.</p>
+                            <div class="tech-stack">
+                                <span>Efficiency</span>
+                                <span>Python</span>
+                                <span>Maintenance</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">BUSINESS AUTOMATION</div>
+                            <h3>End-to-End CRM Integration</h3>
+                            <p>End-to-end business automation system integrating websites, CRM, email, and workflow
+                                automation to reduce manual operations.</p>
+                            <div class="tech-stack">
+                                <span>CRM</span>
+                                <span>Workflow</span>
+                                <span>API</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 6 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-category">BUSINESS AUTOMATION</div>
+                            <h3>AI-Driven Process Solution</h3>
+                            <p>Intelligent automation solution leveraging AI-driven workflows to streamline business
+                                processes, reporting, and client management.</p>
+                            <div class="tech-stack">
+                                <span>AI Workflows</span>
+                                <span>Reporting</span>
+                                <span>Management</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section reveal">
+            <div class="container narrow">
+                <h2 class="section-title center">05. <span class="highlight">Establish Connection</span></h2>
+                <p class="contact-subtitle">Have a project in mind or want to discuss the future of tech? Send a
+                    transmission.</p>
+
+                <form class="contact-form" action="https://formsubmit.co/sa.mollick@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Contact from Portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Enter your message..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Send Transmission_</button>
+                </form>
+
+                <div class="social-links">
+                    <a href="https://github.com/nuxrif" target="_blank" class="social-icon"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/nuxrif/" target="_blank" class="social-icon"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/nuxrif" target="_blank" class="social-icon"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="mailto:sa.mollick@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sharif Ahammed. <span class="green-text">System Status: Online</span></p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

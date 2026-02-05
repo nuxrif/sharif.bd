@@ -1,0 +1,89 @@
+/* Terminal Execution Logs Style */
+.terminal-logs {
+    font-family: var(--font-mono);
+    border-left: 1px solid #333;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.log-entry {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.log-entry::before {
+    content: '>';
+    position: absolute;
+    left: -28px;
+    top: 0;
+    color: var(--accent-color);
+    background: var(--bg-color);
+    padding: 0 5px;
+}
+
+.log-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+
+.log-time {
+    color: #666;
+}
+
+.log-command {
+    color: var(--accent-color);
+}
+
+.log-content {
+    padding-left: 15px;
+    border-left: 1px dashed #333;
+}
+
+.log-role {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.log-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Hover Effect for Logs */
+.log-entry:hover .log-content {
+    border-left-color: var(--accent-color);
+}
+
+.log-entry:hover .log-time {
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .terminal-logs {
+        padding-left: 15px;
+        margin-left: 0;
+    }
+
+    .log-entry::before {
+        left: -20px;
+        font-size: 0.8rem;
+    }
+
+    .log-content {
+        padding-left: 10px;
+    }
+
+    .log-role {
+        font-size: 1rem;
+    }
+
+    .log-header {
+        font-size: 0.75rem;
+    }
+}
