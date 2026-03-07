@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diploma 11 Batch Course List</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'AdorshoLipi', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .university-logo {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h1 { 
+            color: var(--primary-color); 
+            margin: 10px 0 0 0; 
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .semester-block {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .semester-block:hover {
+            transform: translateY(-3px);
+        }
+
+        .semester-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: var(--secondary-color);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .credit-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .grand-total {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .university-logo { max-width: 200px; }
+            h1 { font-size: 22px; }
+            th, td { padding: 10px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="https://cust.edu.bd/wp-content/uploads/2014/10/logo-univeristy-1x.png" alt="CUST Logo" class="university-logo">
+        <h1>ডিপলোমা ১১ ব্যাচ</h1>
+    </header>
+
+    <div id="course-container"></div>
+
+    <div class="grand-total">
+        সব সেমিস্টার মিলিয়ে সর্বমোট ক্রেডিট: <span id="grand-total-value">0</span>
+    </div>
+</div>
+
+<script>
+    const data = [
+        {
+            semester: "১ম সেমিস্টার (Fall-2023)",
+            courses: [
+                { code: "CSE 101", title: "Structured Programming Language", credit: 3 },
+                { code: "MTH 101", title: "Mathematics - I", credit: 3 },
+                { code: "HEM 101", title: "History of Emergency of Bangladesh", credit: 3 },
+                { code: "ENG 101", title: "English Composition I", credit: 3 },
+                { code: "CSE 102", title: "Structured Programming Language Lab", credit: 1.5 }
+            ]
+        },
+        {
+            semester: "২য় সেমিস্টার (Spring-2024)",
+            courses: [
+                { code: "CSE 103", title: "Discrete Mathematics", credit: 3 },
+                { code: "CSE 105", title: "Data Structure", credit: 3 },
+                { code: "MTH 103", title: "Math II", credit: 3 },
+                { code: "CSE 201", title: "Object Oriented Programming Using C++", credit: 3 },
+                { code: "CSE 205", title: "Digital Logic Design", credit: 3 },
+                { code: "PHY 102", title: "Physics", credit: 3 },
+                { code: "CSE 106", title: "Data Structure Lab", credit: 1.5 },
+                { code: "CSE 202", title: "OOP Using C++ Lab", credit: 1.5 },
+                { code: "PHY 103", title: "Physics Lab", credit: 1.5 },
+                { code: "CSE 206", title: "Digital Logic Design Lab", credit: 1.5 }
+            ]
+        },
+        {
+            semester: "৩য় সেমিস্টার (Fall-2024)",
+            courses: [
+                { code: "MTH 301", title: "Statistics & Probability", credit: 3 },
+                { code: "CSE 203", title: "Design & Algorithm Analysis", credit: 3 },
+                { code: "MTH 201", title: "Mathematics-III", credit: 3 },
+                { code: "CSE 209", title: "Object Oriented Programming with Java", credit: 3 },
+                { code: "CSE 213", title: "Database Management System", credit: 3 },
+                { code: "CSE 303", title: "Microprocessor & Assembly Language", credit: 3 },
+                { code: "CSE 204", title: "Design & Algorithm Analysis Lab", credit: 1.5 },
+                { code: "CSE 210", title: "OOP with Java Lab", credit: 1.5 },
+                { code: "CSE 214", title: "Database Management System Lab", credit: 1.5 },
+                { code: "CSE 304", title: "Microprocessor & Assembly Language Lab", credit: 1.5 }
+            ]
+        },
+        {
+            semester: "৪র্থ সেমিস্টার (Spring-2025)",
+            courses: [
+                { code: "BNG 201", title: "Bengali Language and Culture", credit: 3 },
+                { code: "CSE 301", title: "Web Programming", credit: 3 },
+                { code: "CSE 309", title: "Data Communication", credit: 3 },
+                { code: "CSE 311", title: "Computer Networks", credit: 3 },
+                { code: "CSE 401", title: "Artificial Intelligence", credit: 3 },
+                { code: "MTH 203", title: "Mathematics-IV", credit: 3 },
+                { code: "CSE 302", title: "Web Programming Lab", credit: 1.5 },
+                { code: "CSE 312", title: "Computer Networks Lab", credit: 1.5 },
+                { code: "CSE 402", title: "Artificial Intelligence Lab", credit: 1.5 }
+            ]
+        },
+        {
+            semester: "৫ম সেমিস্টার (Batch-11)",
+            courses: [
+                { code: "CSE 313", title: "Software Engineering", credit: 3 },
+                { code: "CSE 314", title: "Software Engineering Lab", credit: 1.5 },
+                { code: "CSE 409", title: "Network Security", credit: 3 },
+                { code: "CSE 305", title: "Computer Architecture", credit: 3 },
+                { code: "CSE 307", title: "Theory of Computation", credit: 3 },
+                { code: "ECO 301", title: "Economics", credit: 3 },
+                { code: "CSE 317", title: "Engineering Ethics", credit: 3 }
+            ]
+        },
+        {
+            semester: "৬ষ্ঠ সেমিস্টার (Current)",
+            courses: [
+                { code: "CSE 207", title: "Numerical Methods", credit: 3 },
+                { code: "CSE 315", title: "Compiler Design", credit: 3 },
+                { code: "CSE 316", title: "Compiler Design Lab", credit: 1.5 },
+                { code: "CSE 317", title: "Peripheral & Interfacing", credit: 3 },
+                { code: "CSE 318", title: "Peripheral & Interfacing Lab", credit: 1.5 },
+                { code: "CSE 407", title: "Computer Graphics", credit: 3 },
+                { code: "CSE 408", title: "Computer Graphics Lab", credit: 1.5 },
+                { code: "CSE 403", title: "Machine Learning", credit: 3 },
+                { code: "CSE 404", title: "Machine Learning Lab", credit: 1.5 },
+                { code: "CSE 400", title: "Thesis/Project", credit: 6 }
+            ]
+        }
+    ];
+
+    const container = document.getElementById('course-container');
+    let grandTotal = 0;
+
+    data.forEach(sem => {
+        let semTotal = 0;
+        let html = `
+            <div class="semester-block">
+                <div class="semester-header">
+                    <span>${sem.semester}</span>
+                    <span id="header-total-${sem.semester}">ক্রেডিট: 0</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>কোড</th>
+                            <th>কোর্সের নাম</th>
+                            <th>ক্রেডিট</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+        sem.courses.forEach(course => {
+            semTotal += course.credit;
+            html += `
+                <tr>
+                    <td>${course.code}</td>
+                    <td>${course.title}</td>
+                    <td><span class="credit-badge">${course.credit}</span></td>
+                </tr>
+            `;
+        });
+
+        grandTotal += semTotal;
+        html += `
+                </tbody>
+            </table>
+        </div>
+        `;
+        container.innerHTML += html;
+        document.getElementById(`header-total-${sem.semester}`).innerText = `ক্রেডিট: ${semTotal}`;
+    });
+
+    document.getElementById('grand-total-value').innerText = grandTotal;
+</script>
+
+</body>
+</html>
