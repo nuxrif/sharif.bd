@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Info - Professional Domain Insights</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --apple-red: #FF3B30;
+            --apple-bg: #F5F5F7;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --text-dark: #1D1D1F;
+            --text-gray: #86868B;
+            --apple-blue: #007AFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--apple-bg);
+            color: var(--text-dark);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* 1. Global Components */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        /* 2. Navigation */
+        nav {
+            height: 52px;
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .nav-logo svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* 3. Hero Section */
+        header {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .hero-badge {
+            background: rgba(255, 59, 48, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--apple-red);
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.07;
+            margin-bottom: 20px;
+        }
+
+        .sub-headline {
+            font-size: 26px;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .cta-btn-main {
+            display: inline-block;
+            background: var(--text-dark);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-main:hover {
+            transform: scale(1.03);
+            background: #000;
+        }
+
+        /* 4. Preview Section */
+        .preview {
+            padding: 100px 0;
+            background-color: var(--apple-bg);
+            text-align: center;
+        }
+
+        .preview-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -150px; /* Overlap Hero */
+            perspective: 1500px;
+        }
+
+        .app-window {
+            width: 350px;
+            background: var(--glass-bg);
+            border-radius: 35px;
+            padding: 35px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.1);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.5);
+            text-align: left;
+            transform: rotateX(8deg);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(8deg); }
+            50% { transform: translateY(-25px) rotateX(4deg); }
+        }
+
+        /* Mock App UI Styles */
+        .mock-logo { position: absolute; top: 35px; right: 35px; width: 26px; height: 26px; border-radius: 6px; }
+        .mock-title { font-size: 22px; font-weight: 700; color: #1D1D1F; margin-bottom: 28px; letter-spacing: -0.5px; }
+        .mock-item { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; }
+        .mock-label-group { display: flex; align-items: center; gap: 8px; padding-left: 4px; }
+        .mock-label-group svg { width: 14px; height: 14px; fill: var(--apple-red); }
+        .mock-label { font-size: 11px; color: var(--apple-gray); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
+        .mock-value-wrapper { background: rgba(255, 255, 255, 0.85); padding: 14px; border-radius: 14px; border: 0.5px solid rgba(0, 0, 0, 0.04); display: flex; align-items: center; gap: 10px; word-break: break-all; }
+        .mock-value { font-size: 15px; color: #1D1D1F; font-weight: 400; }
+        .mock-btn { width: 100%; padding: 16px; margin-top: 12px; border: none; border-radius: 16px; background-color: var(--apple-red); color: white; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(255, 59, 48, 0.2); }
+
+        /* 5. Benefits Section */
+        .benefits {
+            padding: 120px 0;
+            background-color: #fff;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+        }
+
+        .benefit-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .benefit-content p {
+            font-size: 19px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .benefit-image {
+            background-color: var(--apple-bg);
+            padding: 60px;
+            border-radius: 40px;
+            text-align: center;
+        }
+
+        /* 6. Features Grid Section */
+        .features {
+            padding: 120px 0;
+            background-color: var(--apple-bg);
+        }
+
+        .section-headline {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 80px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 35px;
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+        }
+
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background-color: rgba(255, 59, 48, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .feature-icon-wrapper svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--apple-red);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* 7. CTA Section */
+        .cta-final {
+            background-color: #000;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 25px;
+        }
+
+        .cta-final p {
+            font-size: 22px;
+            color: #86868B;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+
+        .cta-btn-white {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 18px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .cta-btn-white:hover {
+            transform: scale(1.05);
+        }
+
+        /* 8. Footer */
+        footer {
+            padding: 60px 0;
+            background-color: var(--apple-bg);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--apple-blue);
+        }
+
+        .love-sign {
+            color: var(--apple-red);
+            font-size: 16px;
+        }
+
+        /* 9. Responsive */
+        @media (max-width: 992px) {
+            h1 { font-size: 56px; }
+            .section-headline, .benefit-content h2 { font-size: 40px; }
+            .benefit-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .benefit-content { order: 2; }
+            .benefit-image { order: 1; padding: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 42px; letter-spacing: -1px; }
+            .sub-headline { font-size: 20px; }
+            .app-window { width: 300px; padding: 25px; }
+            .feature-card { padding: 35px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">
+                <svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="60" fill="none" stroke="#FF3B30" stroke-width="8"/><path d="M20 64h88M64 12V116" stroke="#FF3B30" stroke-width="8"/><rect x="34" y="52" width="60" height="24" rx="4" fill="#FF3B30"/><text x="40" y="69" fill="white" font-family="Arial" font-weight="bold" font-size="14">WWW.</text></svg>
+                Domain Info
+            </a>
+            <a href="YOUR_STORE_LINK_HERE" class="cta-btn-main" style="padding: 8px 18px; font-size: 14px;">Download</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container" data-aos="fade-up">
+            <div class="hero-badge">NEW: INTEGRATED RDAP TECHNOLOGY</div>
+            <h1>Insights for every domain.</h1>
+            <p class="sub-headline">Discover registrar details instantly with a beautifully crafted browser extension designed for clarity.</p>
+            <a href="YOUR_STORE_LINK_HERE" class="cta-btn-main">Add to Chrome — It's Free</a>
+        </div>
+    </header>
+
+    <section class="preview">
+        <div class="container preview-container" data-aos="zoom-out-up" data-aos-delay="200">
+            <div class="app-window">
+                <img src="https://via.placeholder.com/26/FF3B30/FFFFFF?text=W" class="mock-logo" alt="Logo">
+                <div class="mock-title">Domain Info</div>
+                
+                <div class="mock-item">
+                    <div class="mock-label-group">
+                        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        <div class="mock-label">Domain Name</div>
+                    </div>
+                    <div class="mock-value-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.48 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 00-1.38-3.56A8.03 8.03 0 0118.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 015.08 16zm2.95-8H5.08a7.987 7.987 0 013.33-3.56A15.65 15.65 0 007.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 01-3.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                        <div class="mock-value">example.com</div>
+                    </div>
+                </div>
+
+                <div class="mock-item">
+                    <div class="mock-label-group">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <div class="mock-label">Registrar</div>
+                    </div>
+                    <div class="mock-value-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm10 12h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+                        <div class="mock-value">GoDaddy.com, LLC</div>
+                    </div>
+                </div>
+
+                <button class="mock-btn">Copy Details</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container benefit-grid">
+            <div class="benefit-content" data-aos="fade-right">
+                <h2>Know your domain's home. In one click.</h2>
+                <p>Domain Info simplifies the process of researching domain names. Whether you're a web developer doing competitive analysis or a designer checking client assets, we provide the essential data you need instantly.</p>
+                <p>No external Whois lookups required. Just click the icon and get accurate, official registrar data sourced directly through the RDAP protocol.</p>
+            </div>
+            <div class="benefit-image" data-aos="fade-left">
+                <svg width="150" height="150" viewBox="0 0 24 24" fill="#FF3B30"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-headline" data-aos="fade-up">A refined experience.</h2>
+            <div class="feature-grid">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3>Instant Insights</h3>
+                    <p>Stop wasting time with slow websites. Get domain data immediately without leaving your current tab.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <h3>RDAP Reliability</h3>
+                    <p>Sources accurate information directly through the modern Registration Data Access Protocol (RDAP).</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>
+                    </div>
+                    <h3>Glass UI</h3>
+                    <p>Beautifully designed with a native feel, glassmorphism effects, and red brand tints. Privacy focused.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                    </div>
+                    <h3>One-Click Copy</h3>
+                    <p>Easily copy the domain and registrar name in a clean formatted message to your clipboard.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container" data-aos="zoom-in">
+            <h2>Instant insights, right there.</h2>
+            <p>Add Domain Info to your browser today and refine your workflow. Privacy-friendly and completely free.</p>
+            <a href="YOUR_STORE_LINK_HERE" class="cta-btn-white">Add to Chrome</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Sharif Ahammed. All rights reserved. Built with <span class="love-sign">❤️</span> in Bangladesh.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:your.email@example.com">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Animation duration (ms)
+            easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', // Apple-style easing
+            once: true, // Animation happens only once while scrolling
+        });
+    </script>
+
+</body>
+</html>
