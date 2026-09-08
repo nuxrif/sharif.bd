@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Smart Summarizer</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #ffffff; color: #1b1f27;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.65; font-size: 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
+  h1 { font-size: 30px; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .meta { color: #6e6e73; font-size: 14px; margin: 0 0 32px; }
+  h2 { font-size: 18px; margin: 34px 0 10px; letter-spacing: -0.01em; }
+  p, li { color: #2c2c30; }
+  ul { padding-left: 20px; }
+  li { margin: 5px 0; }
+  a { color: #17427c; }
+  code { background: #f0f1f3; padding: 1px 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; }
+  hr { border: 0; border-top: 1px solid #e6e8ee; margin: 28px 0; }
+  .foot { color: #86868b; font-size: 13.5px; margin-top: 40px; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0b0b0c; color: #e6e6e6; }
+    .meta { color: #9aa0a6; } p, li { color: #d2d2d6; }
+    a { color: #8fb3e8; } code { background: #26272b; }
+    hr { border-top-color: #2a2c34; } .foot { color: #8e8e93; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Privacy Policy — Smart Summarizer</h1>
+    <p class="meta">Last updated: 9 September 2026</p>
+
+    <p>Smart Summarizer (“the extension”) respects your privacy. This policy explains
+    what data the extension handles and how.</p>
+
+    <h2>What the extension stores</h2>
+    <p>Your selected AI provider, API key, model, response language, custom prompt and
+    theme preference are saved using Chrome’s <code>storage</code> API. This data stays
+    in your own browser/Chrome profile and is <strong>never sent to the developer</strong>
+    or any third party other than your chosen AI provider (see below).</p>
+
+    <h2>What data is sent, and where</h2>
+    <p>When you choose <strong>“Summarize with AI”</strong> on selected text, that
+    selected text and your prompt are sent <strong>directly from your browser</strong>
+    to the AI provider you selected, using your own API key. Depending on your choice
+    this is one of:</p>
+    <ul>
+      <li>Google Gemini — <code>generativelanguage.googleapis.com</code></li>
+      <li>Groq — <code>api.groq.com</code></li>
+      <li>OpenRouter — <code>openrouter.ai</code></li>
+      <li>Mistral — <code>api.mistral.ai</code></li>
+      <li>a Custom OpenAI-compatible endpoint that you enter yourself</li>
+    </ul>
+    <p>The extension does <strong>not</strong> run its own servers. No selected text,
+    browsing history, or personal data is collected, logged, or transmitted to the
+    developer. Each provider’s handling of the request is governed by that provider’s
+    own terms and privacy policy.</p>
+
+    <h2>What the extension does NOT do</h2>
+    <ul>
+      <li>It does not track your browsing.</li>
+      <li>It does not read page content until you explicitly select text and trigger
+      the summarize action.</li>
+      <li>It does not sell or share your data, and does not use it for advertising,
+      creditworthiness, or any purpose unrelated to summarizing your selected text.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>contextMenus</code> — add the “Summarize with AI” right-click item.</li>
+      <li><code>storage</code> — save your settings locally.</li>
+      <li><code>scripting</code>, <code>activeTab</code> — show the result popup on the
+      current page when you trigger it.</li>
+      <li>Host access to the provider API domains — call the API you selected.</li>
+      <li><code>optional_host_permissions</code> — requested only when you connect a
+      Custom endpoint, to reach the server you entered.</li>
+      <li>Content script on all sites — so you can summarize text on any page you choose.</li>
+    </ul>
+
+    <h2>Data retention</h2>
+    <p>Your settings remain in your browser until you change them, click “Reset”, or
+    remove the extension. Selected text is sent for a single request and is not stored
+    by the extension.</p>
+
+    <hr />
+    <h2>Contact</h2>
+    <p>
+      Developer: Sharif Ahammed Mollik<br />
+      Website: <a href="https://sharif.bd">https://sharif.bd</a><br />
+      Email: <a href="mailto:sa.mollick@gmail.com">sa.mollick@gmail.com</a>
+    </p>
+    <p class="foot">Smart Summarizer · Chrome extension</p>
+  </div>
+</body>
+</html>
