@@ -75,12 +75,13 @@
     <ul>
       <li><code>contextMenus</code> — add the “Summarize with AI” right-click item.</li>
       <li><code>storage</code> — save your settings locally.</li>
-      <li><code>scripting</code>, <code>activeTab</code> — show the result popup on the
-      current page when you trigger it.</li>
+      <li><code>activeTab</code> + <code>scripting</code> — only when you trigger a
+      summary (via the right-click menu), the extension injects a small script into
+      the page you are viewing to show the result popup. It does not run in the
+      background or on pages you have not acted on.</li>
       <li>Host access to the provider API domains — call the API you selected.</li>
       <li><code>optional_host_permissions</code> — requested only when you connect a
       Custom endpoint, to reach the server you entered.</li>
-      <li>Content script on all sites — so you can summarize text on any page you choose.</li>
     </ul>
 
     <h2>Data retention</h2>
