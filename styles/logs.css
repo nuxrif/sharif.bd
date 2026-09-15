@@ -33,6 +33,11 @@
     color: #666;
 }
 
+/* Hide time labels only in the Execution Logs section */
+#experience .log-time {
+    display: none;
+}
+
 .log-command {
     color: var(--accent-color);
 }
