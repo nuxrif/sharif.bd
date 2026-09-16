@@ -11,6 +11,18 @@
     position: relative;
 }
 
+.log-divider {
+    font-family: var(--font-mono);
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin: 40px 0 25px -20px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #333;
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
 .log-entry::before {
     content: '>';
     position: absolute;
