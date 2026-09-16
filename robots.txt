@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sharif-bd.vercel.app/sitemap.xml
+Sitemap: https://sharif.bd/sitemap.xml
