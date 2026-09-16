@@ -55,6 +55,11 @@
     color: var(--accent-color);
 }
 
+#experience .log-command {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
 .log-content {
     padding-left: 15px;
     border-left: 1px dashed #333;
