@@ -16,7 +16,8 @@
     color: var(--accent-color);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     margin: 40px 0 25px -20px;
     padding-bottom: 8px;
     border-bottom: 1px dashed #333;
