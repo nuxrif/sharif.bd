@@ -55,9 +55,20 @@
     color: var(--accent-color);
 }
 
-#experience .log-command {
+#experience .log-command,
+#education .log-command {
     font-size: 1.25rem;
     font-weight: 700;
+}
+
+/* Education: show the year small, beside the title */
+#education .log-header {
+    align-items: baseline;
+}
+
+#education .log-time {
+    font-size: 0.8rem;
+    color: #666;
 }
 
 .log-content {
